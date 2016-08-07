@@ -1,0 +1,1 @@
+INSERT INTO Person VALUES (1, 'oioi', 'aiai');
