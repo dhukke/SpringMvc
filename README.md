@@ -1,3 +1,15 @@
+SpringMvc 
+
+This is an example on how to use SpringMvc framework.
+
+SpringMvcHibernate
+
+This is an example on how to add Hibernate to a SpringMvc project
+
+HibernateTest
+
+This is a Hibernate project to test Hibernate's features.
+
 References
 
 git ignore for java projects: http://stackoverflow.com/questions/18726217/gitignore-file-for-java-eclipse-project
