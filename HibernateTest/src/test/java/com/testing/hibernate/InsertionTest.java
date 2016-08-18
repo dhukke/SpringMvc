@@ -1,4 +1,4 @@
-package HibernateTest.HibernateTest;
+package com.testing.hibernate;
 
 import java.util.Date;
 import java.util.List;
@@ -8,6 +8,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+
+import com.testing.hibernate.Event;
 
 import junit.framework.TestCase;
 
@@ -19,13 +21,12 @@ import junit.framework.TestCase;
  *
  * @author Steve Ebersole
  */
-public class AppTest extends TestCase {
+public class InsertionTest extends TestCase {
 
   private SessionFactory sessionFactory;
 
   @Override
   protected void setUp() throws Exception {
-
     // A SessionFactory is set up once for an application!
     // configures settings from hibernate.cfg.xml
     final StandardServiceRegistry registry =
@@ -42,7 +43,6 @@ public class AppTest extends TestCase {
 
   @Override
   protected void tearDown() throws Exception {
-
     if (sessionFactory != null) {
       sessionFactory.close();
     }
@@ -69,7 +69,10 @@ public class AppTest extends TestCase {
     for (Event event : (List<Event>) result) {
       System.out.println("Event (" + event.getDate() + ") : " + event.getTitle());
     }
+    
     session.getTransaction().commit();
     session.close();
+    
+    assertEquals(result.size(), 2);
   }
 }

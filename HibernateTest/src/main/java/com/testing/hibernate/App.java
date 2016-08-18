@@ -1,4 +1,4 @@
-package HibernateTest.HibernateTest;
+package com.testing.hibernate;
 
 /**
  * Hello world!

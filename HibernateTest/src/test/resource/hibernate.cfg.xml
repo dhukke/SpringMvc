@@ -35,7 +35,8 @@
         <property name="hbm2ddl.auto">create</property>
 
         <!-- Names the annotated entity class -->
-        <mapping class="HibernateTest.HibernateTest.Event"/>
+        <mapping class="com.testing.hibernate.Event"/>
+        <mapping class="com.testing.hibernate.User"/>
 
     </session-factory>
 
