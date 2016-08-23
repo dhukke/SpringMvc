@@ -37,6 +37,7 @@
         <!-- Names the annotated entity class -->
         <mapping class="com.testing.hibernate.Event"/>
         <mapping class="com.testing.hibernate.User"/>
+        <mapping class="com.testing.hibernate.UserWithMultipleAddress"/>
 
     </session-factory>
 
