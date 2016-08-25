@@ -1,4 +1,4 @@
-package com.testing.onetomany;
+package com.testing.manytomany;
 
 import org.h2.tools.Server;
 import org.hibernate.Session;
@@ -16,7 +16,7 @@ import junit.framework.TestCase;
  *
  * @author Steve Ebersole
  */
-public class OneToManyTest extends TestCase {
+public class ManyToManyTest extends TestCase {
 
   private SessionFactory sessionFactory;
 
@@ -51,34 +51,22 @@ public class OneToManyTest extends TestCase {
   public void testBasicUsage() {
 
     // Create
-    UserOneToMany user = new UserOneToMany();
+    UserManyToMany user = new UserManyToMany();
     user.setUserName("Test1");
 
     // Create
-    VehicleOneToMany vehicle = new VehicleOneToMany();
+    VehicleManyToMany vehicle = new VehicleManyToMany();
     vehicle.setVehicleName("car");
-    
-    VehicleOneToMany vehicle2 = new VehicleOneToMany();
+
+    VehicleManyToMany vehicle2 = new VehicleManyToMany();
     vehicle2.setVehicleName("bus");
-    
-    // Create
-    AddressOneToMany addressOneToMany = new AddressOneToMany();
-    addressOneToMany.setAddressName("ad 1");
-    
-    AddressOneToMany addressOneToMany2 = new AddressOneToMany(); 
-    addressOneToMany2.setAddressName("ad 2");
-    
+
     // Associate
     user.getVehicle().add(vehicle);
     user.getVehicle().add(vehicle2);
-    user.getAddressOneToMany().add(addressOneToMany);
-    user.getAddressOneToMany().add(addressOneToMany2);
-    
-    vehicle.setUserOneToMany(user);
-    vehicle2.setUserOneToMany(user);
-    
-    addressOneToMany.setUserOneToMany(user);
-    addressOneToMany2.setUserOneToMany(user);
+
+    vehicle.getUserOneToMany().add(user);
+    vehicle2.getUserOneToMany().add(user);
 
     // Session - Save
     Session session = sessionFactory.openSession();
@@ -86,8 +74,6 @@ public class OneToManyTest extends TestCase {
     session.save(user);
     session.save(vehicle);
     session.save(vehicle2);
-    session.save(addressOneToMany);
-    session.save(addressOneToMany2);
     session.getTransaction().commit();
     session.close();
 

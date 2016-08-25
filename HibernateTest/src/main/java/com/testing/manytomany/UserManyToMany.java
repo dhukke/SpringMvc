@@ -1,4 +1,4 @@
-package com.testing.onetomany;
+package com.testing.manytomany;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -7,35 +7,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user_one_to_many")
-public class UserOneToMany {
+@Table(name = "many_to_many_user")
+public class UserManyToMany {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private int userId;
   private String userName;
 
-  @OneToMany
-  @JoinTable(name = "one_to_many_user_vehicle", joinColumns = @JoinColumn(name = "user_id"),
-      inverseJoinColumns = @JoinColumn(name = "vehicle_id"))
-  private Collection<VehicleOneToMany> vehicle = new ArrayList<VehicleOneToMany>();
-  
-  @OneToMany(mappedBy="userOneToMany")
-  private Collection<AddressOneToMany> addressOneToMany = new ArrayList<AddressOneToMany>();
-
-  public Collection<AddressOneToMany> getAddressOneToMany() {
-    return addressOneToMany;
-  }
-
-  public void setAddressOneToMany(Collection<AddressOneToMany> addressOneToMany) {
-    this.addressOneToMany = addressOneToMany;
-  }
+  @ManyToMany
+  private Collection<VehicleManyToMany> vehicle = new ArrayList<VehicleManyToMany>();
 
   public int getUserId() {
     return userId;
@@ -53,17 +38,17 @@ public class UserOneToMany {
     this.userName = userName;
   }
 
-  public Collection<VehicleOneToMany> getVehicle() {
+  public Collection<VehicleManyToMany> getVehicle() {
     return vehicle;
   }
 
-  public void setVehicle(Collection<VehicleOneToMany> vehicle) {
+  public void setVehicle(Collection<VehicleManyToMany> vehicle) {
     this.vehicle = vehicle;
   }
 
   @Override
   public String toString() {
-    return "UserOneToMany [userId=" + userId + ", userName=" + userName + ", vehicle=" + vehicle
+    return "UserManyToMany [userId=" + userId + ", userName=" + userName + ", vehicle=" + vehicle
         + "]";
   }
 
@@ -84,7 +69,7 @@ public class UserOneToMany {
       return false;
     if (getClass() != obj.getClass())
       return false;
-    UserOneToMany other = (UserOneToMany) obj;
+    UserManyToMany other = (UserManyToMany) obj;
     if (userId != other.userId)
       return false;
     if (userName == null) {

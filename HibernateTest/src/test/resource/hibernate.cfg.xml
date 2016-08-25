@@ -44,6 +44,12 @@
 		<!-- One to Many -->
 		<mapping class="com.testing.onetomany.UserOneToMany" />
 		<mapping class="com.testing.onetomany.VehicleOneToMany" />
+		<mapping class="com.testing.onetomany.AddressOneToMany" />
+
+		<!-- Many to Many -->
+		<mapping class="com.testing.manytomany.UserManyToMany" />
+		<mapping class="com.testing.manytomany.VehicleManyToMany" />
+		<mapping class="com.testing.onetomany.AddressOneToMany" />
 
 	</session-factory>
 
