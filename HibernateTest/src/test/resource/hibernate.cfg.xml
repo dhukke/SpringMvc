@@ -41,6 +41,9 @@
 		<mapping class="com.testing.onetoone.UserDetail" />
 		<mapping class="com.testing.onetoone.Vehicle" />
 
+		<!-- One to Many -->
+		<mapping class="com.testing.onetomany.UserOneToMany" />
+		<mapping class="com.testing.onetomany.VehicleOneToMany" />
 
 	</session-factory>
 
