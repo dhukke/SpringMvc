@@ -51,6 +51,10 @@
 		<mapping class="com.testing.manytomany.VehicleManyToMany" />
 		<mapping class="com.testing.onetomany.AddressOneToMany" />
 
+		<!-- Cascade -->
+		<mapping class="com.testing.cascade.Genre" />
+		<mapping class="com.testing.cascade.Movie" />
+		
 	</session-factory>
 
 </hibernate-configuration>
