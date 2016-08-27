@@ -54,7 +54,31 @@
 		<!-- Cascade -->
 		<mapping class="com.testing.cascade.Genre" />
 		<mapping class="com.testing.cascade.Movie" />
+
+		<!-- Inheritance Default Way -->
+		<mapping class="com.testing.inheritance.defaultway.Cat" />
+		<mapping class="com.testing.inheritance.defaultway.Dog" />
+		<mapping class="com.testing.inheritance.defaultway.Owner" />
+		<mapping class="com.testing.inheritance.defaultway.Pet" />
+
+		<!-- Inheritance Single Table -->
+		<mapping class="com.testing.inheritance.singletable.App" />
+		<mapping class="com.testing.inheritance.singletable.Java" />
+		<mapping class="com.testing.inheritance.singletable.Javascript" />
+		<mapping class="com.testing.inheritance.singletable.Language" />
 		
+		<!-- Inheritance Table Per Class -->
+		<mapping class="com.testing.inheritance.tablepercls.Cloth" />
+		<mapping class="com.testing.inheritance.tablepercls.Food" />
+		<mapping class="com.testing.inheritance.tablepercls.Market" />
+		<mapping class="com.testing.inheritance.tablepercls.Product" />
+		
+		<!-- Inheritance Joined Strategy -->
+		<mapping class="com.testing.inheritance.joinedstrategy.Company" />
+		<mapping class="com.testing.inheritance.joinedstrategy.Departament" />
+		<mapping class="com.testing.inheritance.joinedstrategy.Finance" />
+		<mapping class="com.testing.inheritance.joinedstrategy.Hr" />
+
 	</session-factory>
 
 </hibernate-configuration>
