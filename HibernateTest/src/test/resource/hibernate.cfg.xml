@@ -78,6 +78,9 @@
 		<mapping class="com.testing.inheritance.joinedstrategy.Departament" />
 		<mapping class="com.testing.inheritance.joinedstrategy.Finance" />
 		<mapping class="com.testing.inheritance.joinedstrategy.Hr" />
+		
+		<!-- CRUD -->
+		<mapping class="com.testing.crud.Person" />
 
 	</session-factory>
 
