@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQuery;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -13,6 +15,9 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
+@NamedQuery(name = "Event.byId", query = "from Event where id = :id")
+@NamedNativeQuery(name = "Event.byTitle", query = "select * from EVENTS where title = :title",
+    resultClass = Event.class)
 @Table(name = "EVENTS")
 public class Event {
   private Long id;
@@ -30,7 +35,7 @@ public class Event {
     this.date = date;
   }
 
-  @Id   
+  @Id
   @GeneratedValue(generator = "increment")
   @GenericGenerator(name = "increment", strategy = "increment")
   public Long getId() {
